@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaaSquatch Leads - Python API Backend</title>
+  <style>
+    :root {
+      --bg-dark: #080f0d;
+      --card-bg: #0f1815;
+      --border-color: #1a2a24;
+      --accent-green: #10b981;
+      --accent-cyan: #38bdf8;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .container {
+      width: 100%;
+      max-width: 860px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: var(--accent-green);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-green);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-green);
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .highlight {
+      color: var(--accent-green);
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .card h2 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .endpoint-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    .method {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .method.post {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .method.get {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-green);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .endpoint-path {
+      font-family: monospace;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .endpoint-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    pre {
+      background: #040806;
+      border: 1px solid var(--border-color);
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--accent-green);
+      overflow-x: auto;
+      margin-top: 8px;
+    }
+    .footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-top: 24px;
+    }
+    a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="badge">
+        <span class="dot"></span> Vercel Serverless Python Backend Active
+      </div>
+      <h1>SaaSquatch <span class="highlight">Leads API</span></h1>
+      <p class="subtitle">Modular live web search, company contact scraper, and Groq GPT-OSS cold email generation engine.</p>
+    </div>
+
+    <div class="card">
+      <h2>📡 Available API Endpoints</h2>
+      
+      <div class="endpoint-item">
+        <span class="method get">GET</span>
+        <div>
+          <div class="endpoint-path">/api/health</div>
+          <div class="endpoint-desc">Verify backend service health and online status.</div>
+        </div>
+      </div>
+
+      <div class="endpoint-item">
+        <span class="method post">POST</span>
+        <div>
+          <div class="endpoint-path">/api/search_leads</div>
+          <div class="endpoint-desc">Discovers top company websites via live web search and extracts company names, emails, phones, verified LinkedIn links, locations, and business categories.</div>
+        </div>
+      </div>
+
+      <div class="endpoint-item">
+        <span class="method post">POST</span>
+        <div>
+          <div class="endpoint-path">/api/generate_email</div>
+          <div class="endpoint-desc">Generates tailored B2B outreach email pitches using Groq Cloud AI strictly powered by model <code>openai/gpt-oss-20b</code>.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>⚡ Quick cURL Health Test</h2>
+      <pre>curl -X GET https://&lt;your-vercel-domain&gt;/api/health</pre>
+    </div>
+
+    <div class="footer">
+      SaaSquatch Leads &bull; Hosted on Vercel Serverless
+    </div>
+  </div>
+</body>
+</html>
